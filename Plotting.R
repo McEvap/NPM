@@ -32,9 +32,9 @@ ui <- fluidPage(
   
   #select variable from chosen site 
   #STUCK ON THIS BIT OF GETTING COLUMN NAMES FROM THE SELECTED FILE
-  selectizeInput("measurement", "Measured parameter: Multi-select", choices = ????, multiple = TRUE),
+  updateSelectizeInput("measurement", "Measured parameter: Multi-select", choices = colnames(datasetInput())),
  
-  #select time period to view with default last week
+  #select time period to view with default of the last 2 weeks
   dateRangeInput(inputId = "dateRange", label = "Date range to view:", start = Sys.Date()-14, end = Sys.Date(), min = "2019-11-30", max = Sys.Date()),
   
   #create plot
